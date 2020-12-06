@@ -16,10 +16,22 @@ const CounterPage = (props: Record<string, any>) => (
   </React.Suspense>
 );
 
+// Lazily load routes and code split with webpack
+const LazyMembersPage = React.lazy(() =>
+  import(/* webpackChunkName: "MembersPage" */ './containers/MembersPage')
+);
+
+const MembersPage = (props: Record<string, any>) => (
+  <React.Suspense fallback={<h1>Loading...</h1>}>
+    <LazyMembersPage {...props} />
+  </React.Suspense>
+);
+
 export default function Routes() {
   return (
     <App>
       <Switch>
+        <Route path={routes.MEMBERS} component={MembersPage} />
         <Route path={routes.COUNTER} component={CounterPage} />
         <Route path={routes.HOME} component={HomePage} />
       </Switch>
