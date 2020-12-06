@@ -3,8 +3,11 @@ import styles from './MemberSoundboard.css';
 
 export default function Members(): JSX.Element {
     const click = () => {
-        const audio = new Audio('audio/yubiyubi.mp3');
-        audio.play();
+      console.log("TEST")
+      const audio = new Audio('audio/yubiyubi.mp3');
+      audio.play().then(() => {
+        console.log("PLAYED")
+      }).catch(err => console.log(err));
     }
     return (
       <div className={styles.container} data-tid="members">

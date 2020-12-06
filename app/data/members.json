@@ -3,7 +3,11 @@
         "englishName" : "Inugami Korone",
         "japaneseName" : "戌神ころね",
         "generation" : "gamers",
-        "description" : "",
+        "emoji": "🥐",
+        "colors" : {
+            "primaryThemeColor" : "",
+            "secondaryThemeColor" : ""
+        },
         "audio" : {
             "Yubi! Yubi!" : ""
         }
