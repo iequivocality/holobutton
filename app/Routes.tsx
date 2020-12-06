@@ -4,17 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import routes from './constants/routes.json';
 import App from './containers/App';
 import HomePage from './containers/HomePage';
-
-// Lazily load routes and code split with webpack
-const LazyCounterPage = React.lazy(() =>
-  import(/* webpackChunkName: "CounterPage" */ './containers/CounterPage')
-);
-
-const CounterPage = (props: Record<string, any>) => (
-  <React.Suspense fallback={<h1>Loading...</h1>}>
-    <LazyCounterPage {...props} />
-  </React.Suspense>
-);
+import MemberSoundboardPage from './containers/MemberSoundboardPage';
 
 // Lazily load routes and code split with webpack
 const LazyMembersPage = React.lazy(() =>
@@ -32,7 +22,7 @@ export default function Routes() {
     <App>
       <Switch>
         <Route path={routes.MEMBERS} component={MembersPage} />
-        <Route path={routes.COUNTER} component={CounterPage} />
+        <Route path={routes.MEMBER} component={MemberSoundboardPage} />
         <Route path={routes.HOME} component={HomePage} />
       </Switch>
     </App>
